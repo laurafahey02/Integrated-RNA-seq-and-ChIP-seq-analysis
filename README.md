@@ -121,7 +121,7 @@ done
 
 ```
 
-### 6. Generate count files using Stringtie
+#### 6. Generate count files using Stringtie
 
 ```
 
@@ -145,7 +145,7 @@ python prepDE.py -i gtf_list.txt
 # Generates gene_count_matrix.csv and  transcript_count_matrix.csv
 
 ```
-#### Statistical analysis using EdgeR 
+#### 7. Statistical analysis using EdgeR 
 
 Run edgeR.R to output a list of differentially expressed genes as gene symbols using cutoff FDR < 0.01.
 
