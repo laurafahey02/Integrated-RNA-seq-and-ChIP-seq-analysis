@@ -229,7 +229,7 @@ samtools merge control.bam SRR3938842.rmdup.sorted.bam SRR3938846.rmdup.sorted.b
 
 ```
 
-#### 7. Call peaks using macs:
+#### 6. Call peaks using macs:
 
 ```
 
