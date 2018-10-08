@@ -96,7 +96,8 @@ python extract_splice_sites.py Homo_sapiens.GRCh37.75.gtf > splicesites.txt
 
 for i in {88,90,92,94,96,98}
 do
-/data4/laura/hisat_stranded/hisat2-2.0.5/hisat2 -x index -known-splicesite-infile splicesites.txt -p 12 --dta -1 SRR51943${i}_pass_1.fastq -2 SRR51943${i}_pass_2.fastq -S SRR51943${i}.sam
+/data4/laura/hisat_stranded/hisat2-2.0.5/hisat2 -x index --known-splicesite-infile splicesites.txt -p 12 --dta -1 SRR51943${i}_output_forward_paired.fq -2 SRR51943${i}_reverse_paired.fq -S SRR51943${i}.sam
+done
 
 ```
 
@@ -158,6 +159,7 @@ Run edgeR.R to output a list of differentially expressed genes as gene symbols u
 for i in {1,2,5,6};
 do
 /home/nextgen2015/.aspera/connect/bin/ascp -i /home/nextgen2015/.aspera/connect/etc/asperaweb_id_dsa.openssh -k1 -Tr -l200m anonftp@ftp-trace.ncbi.nlm.nih.gov:/sra/sra-instant/reads/ByStudy/sra/SRP/SRP079/SRP079176/SRR393884$i/SRR393884$i.sra ./;
+done
 
 ```
 
@@ -233,7 +235,7 @@ samtools merge control.bam SRR3938842.rmdup.sorted.bam SRR3938846.rmdup.sorted.b
 
 ```
 
-macs2 callpeak -t IP.bam -c control.bam -f BAMPE -g hs -n macs_reps_merged --call-summits -B --tempdir /home/lfahey/
+macs2 callpeak -t IP.bam -c control.bam -f BAMPE -g hs -n macs_reps_merged -q 0.01 -B --tempdir /home/lfahey/
 
 ```
 Edit macs .xls file output for beta:
