@@ -105,7 +105,7 @@ done
 
 ```
 
-for i in \*.sam
+for i in *.sam
 do
 id=$(echo ${i} | sed 's/.sam//')
 # Convert SAM files to BAM format
