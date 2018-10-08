@@ -238,14 +238,10 @@ samtools merge control.bam SRR3938842.rmdup.sorted.bam SRR3938846.rmdup.sorted.b
 macs2 callpeak -t IP.bam -c control.bam -f BAMPE -g hs -n macs_reps_merged -q 0.01 -B --tempdir /home/lfahey/
 
 ```
-Edit macs .xls file output for beta:
+Edit macs .narrowpeak file output for beta:
 
 ```
-
-# this line removes rows that begin with a #, chr (header), GL or MT (extra chromosomes), adds chr to the begining of each row (required by beta) and then prints columns containing ID value, chromosome co-ordinates and -log10(q-value).
-
-
-sed -e '/^#\|chr\|GL\|MT/d' -e 's/^/chr/' macs_merged_reps_37_nosummits_peaks.xls | awk '{print $1, $2, $3, $9}' | sed "1d" > macs_xls_output.bed
+awk '{print "chr" $1, $2, $3, $4, $9}' macs_merged_reps_cd34-_peaks.narrowPeak > macs_merged_reps_cd34-_peaks.bed
 
 ```
 
