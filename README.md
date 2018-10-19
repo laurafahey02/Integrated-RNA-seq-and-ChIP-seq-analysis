@@ -231,7 +231,7 @@ macs2 callpeak -t SRR3330046.rmdup.sorted.bam SRR3330049.rmdup.sorted.bam -c SRR
 Edit macs .narrowpeak file output for beta:
 
 ```
-awk '{print "chr" $1, $2, $3, $4, $9}' macs_merged_reps_cd34-_peaks.narrowPeak > macs_merged_reps_cd34-_peaks.bed
+sed -e '/^GL\|MT/d' macs_merged_reps_cd34-_peaks.narrowPeak | awk '{print "chr" $1, $2, $3, $4, $9}' > macs_merged_reps_cd34-_peaks.bed
 
 ```
 
