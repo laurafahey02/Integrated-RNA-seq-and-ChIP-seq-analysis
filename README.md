@@ -204,7 +204,7 @@ done
 
 ```
 
-for i in \*.sam
+for i in *.sam
 do
 id=$(echo ${i} | sed 's/.sam//')
 # Convert SAM files to BAM format
@@ -221,21 +221,11 @@ done
 
 ```
 
-##### Merge replicates
-
-```
-
-samtools merge IP.bam SRR3938841.rmdup.sorted.bam SRR3938845.rmdup.sorted.bam
-
-samtools merge control.bam SRR3938842.rmdup.sorted.bam SRR3938846.rmdup.sorted.bam
-
-```
-
 #### 6. Call peaks using macs:
 
 ```
 
-macs2 callpeak -t IP.bam -c control.bam -f BAMPE -g hs -n macs_reps_merged -q 0.01 -B --tempdir /home/lfahey/
+macs2 callpeak -t SRR3330046.rmdup.sorted.bam SRR3330049.rmdup.sorted.bam -c SRR3330048.rmdup.sorted.bam SRR3330051.rmdup.sorted.bam -f BAMPE -g hs -n sep_reps -q 0.01 -B --tempdir /home/lfahey/
 
 ```
 Edit macs .narrowpeak file output for beta:
@@ -255,7 +245,7 @@ BETA_1.0.7/bin/BETA basic -p macs_xls_output.bed -e deGenes_sym.txt -k BSF -g hg
 
 
 ```
-Cutoff was set to 1 because up-regulated and downregulated genes do not differ significantly in terms of the number of ChIP detected binding sites.
+Cutoff was set to 1 because the regulatory potential of up-regulated or downregulated genes do not differ significantly from statically expressed genes.
 
 
 
