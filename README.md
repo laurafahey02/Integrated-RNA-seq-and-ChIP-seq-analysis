@@ -1,6 +1,6 @@
 # Integrated-RNA-seq-and-ChIP-seq-analysis
 
-Here, I provide the code used to carry out an integrated RNA-seq and ChIP-seq analysis of data accessed through GEO, producing a list of transcription factor target genes.
+Here, I provide the code used to perform an integrated RNA-seq and ChIP-seq analysis of data accessed through GEO, producing a list of transcription factor target genes that5 were used in the published paper, [Genes regulated by BCL11B during T-cell development are enriched for de novo mutations found in schizophrenia patients.](https://onlinelibrary.wiley.com/doi/abs/10.1002/ajmg.b.32811)
 
 I am interested in the target genes of tracription factor bcl11b. For the analysis below, I used RNA-seq and ChIP-seq data from [Ha VL, Luong A, Li F, Casero D et al., 2017](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84678), carried out on human T-cells in DN3/DN4 stage at differentiation.
 
